@@ -28,11 +28,11 @@ def predict(file):
   print(result)
   answer = np.argmax(result)
   if answer == 1:
-    print("Predicted: chair")
+    print("Predicted: Input")
   elif answer == 0:
     print("Predicted: Button")
   elif answer == 2:
-    print("Predicted: soccer_ball")
+    print("Predicted: Paragraph")
 
   return answer
 
