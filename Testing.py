@@ -25,12 +25,12 @@ def predict(file):
   x = np.expand_dims(x, axis=0)
   array = model.predict(x)
   result = array[0]
-  #print(result)
+  print(result)
   answer = np.argmax(result)
   if answer == 1:
     print("Predicted: chair")
   elif answer == 0:
-    print("Predicted: Motorbikes")
+    print("Predicted: Button")
   elif answer == 2:
     print("Predicted: soccer_ball")
 
