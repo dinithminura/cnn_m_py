@@ -18,6 +18,8 @@ model.load_weights(model_weights_path)
 #Define image parameters
 img_width, img_height = 150, 150
 
+fl= open("code.txt","w+")
+
 #Prediction Function
 def predict(file):
   x = load_img(file, target_size=(img_width,img_height))
@@ -28,10 +30,13 @@ def predict(file):
   print(result)
   answer = np.argmax(result)
   if answer == 1:
+    fl.write("<input></input>\n")
     print("Predicted: Input")
   elif answer == 0:
+    fl.write("<button></button>\n")
     print("Predicted: Button")
   elif answer == 2:
+    fl.write("<p></p>\n")
     print("Predicted: Paragraph")
 
   return answer
@@ -49,6 +54,7 @@ for i, ret in enumerate(os.walk(test_path)):
 #Calculate execution time
 end = time.time()
 dur = end-start
+fl.close() 
 
 if dur<60:
     print("Execution Time:",dur,"seconds")
