@@ -48,15 +48,17 @@ def predict(file):
   return answer
 
 #Walk the directory for every image
-for i, ret in enumerate(os.walk(test_path)):
-  ret.sort()
-  for i, filename in enumerate(ret[2]):
-    if filename.startswith("."):
-      continue
-    
-    print(ret[0] + '/' + filename)
-    result = predict(ret[0] + '/' + filename)
-    print(" ")
+paths_list = []
+for root, dirs, files in os.walk(test_path):
+  dirs.sort()
+  for i, ret in enumerate(dirs):
+    for i, filename in enumerate(ret[2]):
+      if filename.startswith("."):
+        continue
+      
+      print(ret[0] + '/' + filename)
+      result = predict(ret[0] + '/' + filename)
+      print(" ")
 
 #Calculate execution time
 end = time.time()
