@@ -49,6 +49,7 @@ def predict(file):
 
 #Walk the directory for every image
 for i, ret in enumerate(os.walk(test_path)):
+  print(ret)
   for i, filename in enumerate(ret[2]):
     if filename.startswith("."):
       continue
