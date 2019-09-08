@@ -36,7 +36,7 @@ def predict(file):
   print(result)
   answer = np.argmax(result)
   if answer == 1:
-    fl.write("<input></input>\n")
+    fl.write("<input/>\n")
     print("Predicted: Input")
   elif answer == 0:
     fl.write("<button></button>\n")
