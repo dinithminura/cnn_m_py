@@ -19,6 +19,12 @@ model.load_weights(model_weights_path)
 img_width, img_height = 150, 150
 
 fl= open("code.txt","w+")
+fl.write("<!DOCTYPE html>\n")
+fl.write("<html>\n")
+fl.write("<head>\n")
+fl.write("<title>Page created from cnn</title>\n")
+fl.write("</head>\n")
+fl.write("<body>\n")
 
 #Prediction Function
 def predict(file):
@@ -54,6 +60,9 @@ for i, ret in enumerate(os.walk(test_path)):
 #Calculate execution time
 end = time.time()
 dur = end-start
+
+fl.write("</body>\n")
+fl.write("</html>\n")
 fl.close() 
 
 if dur<60:
